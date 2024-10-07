@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:sartarosh/screens/barbers/barbers_screen.dart';
 import 'package:sartarosh/screens/home_screen/app_drawer/languages_screen/languages_screen.dart';
 import 'package:sartarosh/screens/home_screen/app_drawer/map/map_screen.dart';
+import 'package:sartarosh/screens/home_screen/app_drawer/notification/notification.dart';
+import 'package:sartarosh/screens/home_screen/app_drawer/user_profil/user_profil.dart';
 import 'package:sartarosh/utils/colors/app_colors.dart';
 import 'package:sartarosh/utils/images/app_images.dart';
 import 'package:sartarosh/utils/theme/app_theme.dart';
@@ -39,18 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: Drawer(
-        backgroundColor :Colors.grey,
+        backgroundColor: Colors.grey,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-              const DrawerHeader(
-
-        // backgroundBlendMode :Color(0xFF272827),
-              decoration: BoxDecoration(
-        //
-                color:
-                AppColors.c1B2B2B
-              ),
+            const DrawerHeader(
+              decoration: BoxDecoration(color: AppColors.c1B2B2B),
               child: Text(
                 'Alyaska',
                 style: TextStyle(
@@ -61,7 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.language),
-              title: Text('select_language'.tr(),style:  Theme.of(context).textTheme.bodyMedium,),
+              title: Text(
+                'select_language'.tr(),
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const LanguagesScreen();
@@ -74,7 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: context.isDarkTheme() ? Colors.white : Colors.yellow,
               ),
               title: Text(
-                  context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr(),style: Theme.of(context).textTheme.bodyMedium),
+                  context.isDarkTheme() ? 'dark_mode'.tr() : 'light_mode'.tr(),
+                  style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 // Theme switching
                 if (context.isDarkTheme()) {
@@ -86,10 +86,30 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.location_on_outlined),
-              title: Text('location'.tr(),style: Theme.of(context).textTheme.bodyMedium),
+              title: Text('location'.tr(),
+                  style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const MapScreen()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications),
+              title: Text('natification'.tr(),
+                  style: Theme.of(context).textTheme.bodyMedium),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const NotificationScreen()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text("user profile"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UserProfile()));
               },
             ),
           ],
@@ -140,23 +160,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: BoxDecoration(
                     gradient: isDarkMode
                         ? const LinearGradient(
-                      colors: [
-                        Color(0xFF030305),
-                        Color(0xFF0D0F19),
-                        Color(0xFF272827)
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    )
+                            colors: [
+                              Color(0xFF030305),
+                              Color(0xFF0D0F19),
+                              Color(0xFF272827)
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          )
                         : const LinearGradient(
-                      colors: [
-                        AppColors.c355353,
-                        AppColors.c355353,
-                        AppColors.c355353,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
+                            colors: [
+                              AppColors.c355353,
+                              AppColors.c355353,
+                              AppColors.c355353,
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
                     // color: Colors.red,
                     border: Border.all(
                       color: Colors.white,

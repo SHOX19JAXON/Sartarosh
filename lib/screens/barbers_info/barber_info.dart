@@ -3,8 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sartarosh/data/models/barbers_model.dart';
-import 'package:sartarosh/screens/add_works.dart';
+
 import 'package:sartarosh/screens/barber_work/barber_project_screen/barber_project_screen.dart';
+import 'package:sartarosh/screens/booking/booking.dart';
 import 'package:sartarosh/utils/colors/app_colors.dart';
 
 class BarberInfo extends StatefulWidget {
@@ -199,7 +200,7 @@ class _BarberInfoState extends State<BarberInfo> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BookingScreen(),
+                    builder: (context) => const BookingScreen(),
                   ),
                 );
               },

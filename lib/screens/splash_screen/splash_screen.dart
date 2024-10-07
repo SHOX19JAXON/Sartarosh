@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sartarosh/screens/home_screen/home_screen.dart';
+import 'package:sartarosh/screens/tap_box_screen/tab_box_screen.dart';
 import 'package:sartarosh/utils/colors/app_colors.dart';
 import 'package:sartarosh/utils/images/app_images.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       });
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const HomeScreen();
+        return const TabBox1();
       }));
     }
   }

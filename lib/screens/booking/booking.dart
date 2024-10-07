@@ -229,8 +229,18 @@ class BookingScreen extends StatefulWidget {
 
 class _BookingScreenState extends State<BookingScreen> {
   DateTime? selectedDate;
-  List<String> availableTimes = ["09:00", "10:00", "11:00", "14:00", "15:00","16:00","17:00","18:00"];
-  Map<DateTime, List<String>> bookedSchedule = {}; // Sanalar va band qilingan vaqtlar
+  List<String> availableTimes = [
+    "09:00",
+    "10:00",
+    "11:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00"
+  ];
+  Map<DateTime, List<String>> bookedSchedule =
+      {}; // Sanalar va band qilingan vaqtlar
 
   @override
   void initState() {
@@ -243,7 +253,8 @@ class _BookingScreenState extends State<BookingScreen> {
       }
     } else {
       selectedDate = DateTime.now(); // Hozirgi sanani tanlang
-      bookedSchedule[selectedDate!] = []; // Hozirgi sanaga yangi ro'yxat yarating
+      bookedSchedule[selectedDate!] =
+          []; // Hozirgi sanaga yangi ro'yxat yarating
     }
   }
 
@@ -259,7 +270,8 @@ class _BookingScreenState extends State<BookingScreen> {
         selectedDate = pickedDate;
         // Tanlangan sananing band qilingan vaqtlarini olish
         if (!bookedSchedule.containsKey(selectedDate)) {
-          bookedSchedule[selectedDate!] = []; // Agar band qilingan vaqtlar yo'q bo'lsa, yangi ro'yxat yaratamiz
+          bookedSchedule[selectedDate!] =
+              []; // Agar band qilingan vaqtlar yo'q bo'lsa, yangi ro'yxat yaratamiz
         }
       });
     }
@@ -304,7 +316,10 @@ class _BookingScreenState extends State<BookingScreen> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => _selectDate(context),
-              child: Text("Change Date"),
+              child: Text(
+                "Change Date",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             SizedBox(height: 20),
             Expanded(
@@ -317,29 +332,32 @@ class _BookingScreenState extends State<BookingScreen> {
                     title: Text(time),
                     trailing: isBooked
                         ? Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text(
-                          "Booked",
-                          style: TextStyle(color: Colors.red),
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.cancel),
-                          color: Colors.red,
-                          onPressed: () {
-                            _cancelBooking(time);
-                          },
-                        ),
-                      ],
-                    )
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text(
+                                "Booked",
+                                style: TextStyle(color: Colors.red),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.cancel),
+                                color: Colors.red,
+                                onPressed: () {
+                                  _cancelBooking(time);
+                                },
+                              ),
+                            ],
+                          )
                         : ElevatedButton(
-                      onPressed: () {
-                        if (!isBooked) {
-                          _bookTime(time);
-                        }
-                      },
-                      child: const Text("Book"),
-                    ),
+                            onPressed: () {
+                              if (!isBooked) {
+                                _bookTime(time);
+                              }
+                            },
+                            child: const Text(
+                              "Book",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                   );
                 },
               ),
