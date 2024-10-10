@@ -329,15 +329,14 @@ class _BookingScreenState extends State<BookingScreen> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.c355353.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(20)
-                ),
-                
+                    color: Colors.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(20)),
                 child: ListView.builder(
                   itemCount: availableTimes.length,
                   itemBuilder: (context, index) {
                     String time = availableTimes[index];
-                    bool isBooked = bookedSchedule[selectedDate]!.contains(time);
+                    bool isBooked =
+                        bookedSchedule[selectedDate]!.contains(time);
                     return Column(
                       children: [
                         ListTile(
@@ -371,10 +370,15 @@ class _BookingScreenState extends State<BookingScreen> {
                                   ),
                                 ),
                         ),
-                        SizedBox(height: 5,),
-                        Container(color: Colors.black,
-                        margin: EdgeInsets.symmetric(horizontal: 15),
-                        width: double.infinity,height: 1,),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          color: Colors.black,
+                          margin: EdgeInsets.symmetric(horizontal: 15),
+                          width: double.infinity,
+                          height: 1,
+                        ),
                       ],
                     );
                   },

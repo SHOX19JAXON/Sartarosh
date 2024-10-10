@@ -124,7 +124,7 @@ List<BarbersModel> barbers = [
   BarbersModel(
     id: 10,
     name: 'Ibrohim',
-    surname: "To'xtashimova",
+    surname: "To'xtashimov",
     age: 24,
     workExperience: 10,
     skills: 5,

@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
       await prefs.setBool('isFirstTime', false);
       Timer(const Duration(seconds: 5), () {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return const HomeScreen();
+          return const TabBox1();
         }));
       });
     } else {

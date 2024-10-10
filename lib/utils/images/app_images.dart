@@ -45,6 +45,7 @@ class AppImages {
 
   static const String barber = "assets/lotties/barber.json";
   static const String taxi = "assets/lotties/barber.json";
+  static const String empty2 = "assets/lotties/empty2.json";
 
   //.svg
 

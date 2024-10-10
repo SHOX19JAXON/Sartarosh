@@ -39,7 +39,7 @@ class BarbersModel {
       phoneNumber: json['phoneNumber']as String? ?? '',
       email: json['email']as String? ?? '',
       description: json['description']as String? ?? '',
-      fotos: BarberWorkFotos.initialValue1()
+      fotos: json["fotos"]as List<BarberWorkFotos>? ?? []
     );
   }
 
