@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sartarosh/screens/auth/widgets/global_passwordfield.dart';
 import 'package:sartarosh/screens/auth/widgets/global_textbutton.dart';
 import 'package:sartarosh/screens/routes.dart';
+import 'package:sartarosh/screens/tap_box_screen/tab_box_screen.dart';
 import 'package:sartarosh/utils/app_constants_RegExp/app_constants_RegExp.dart';
 import 'package:sartarosh/utils/colors/app_colors.dart';
 import 'package:sartarosh/utils/extensions/size.dart';
@@ -113,20 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: GlobalTextButton(
                     // isLoading: state.status == FormsStatus.loading,
                     onTap: () {
-                      // final isValidateTwo =
-                      // _formKeyTwo.currentState!.validate();
-                      // final isValidateThree =
-                      // _formKeyThree.currentState!.validate();
-                      // if (isValidateTwo && isValidateThree) {
-                      //   String cleanedPhone = phoneController.text
-                      //       .replaceAll(RegExp(r'\D+'), '');
-                      //   context.read<AuthBloc>().add(
-                      //     LoginUserEvent(
-                      //       phoneNumber: cleanedPhone,
-                      //       password: passwordController.text,
-                      //     ),
-                      //   );
-                      // }
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                        return const TabBox1();
+                      }));
                     },
                     text: "login".tr(),
                   ),

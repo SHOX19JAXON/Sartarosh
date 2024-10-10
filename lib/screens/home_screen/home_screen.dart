@@ -181,10 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const CompanyDescriptionItem(
                   description:
                       "Alaska 10 yildan buyon o'zining mijozlariiga sifatli xizmat qilib kelmoqda. Samarqanddagi top 10 talikdagi erkaklar sartarosh xonasi bo'lib, siz bu yerda istalgan soch turmagingizni qilish imkoniga egasiz"),
-              // Text(
-              //   "data".tr(),
-              //   style: Theme.of(context).textTheme.bodyMedium,
-              // ),
+
               const SizedBox(
                 height: 20,
               ),
@@ -197,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               bronlar.isNotEmpty
                   ? Container(
-                      height: 205,
+
                       decoration: BoxDecoration(
                         color: AppColors.c355353.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(20),
@@ -214,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )
                   : Container(
-                      height: 200,
+
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: AppColors.c355353.withOpacity(0.3),
@@ -232,7 +229,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           Lottie.asset(AppImages.empty2,
                               width: 200, height: 150)
                         ],
-                      )),
+                      ),
+                    ),
               const SizedBox(
                 height: 10,
               ),
@@ -244,4 +242,4 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-List<int> bronlar = [2,5];
+List<int> bronlar = [];
