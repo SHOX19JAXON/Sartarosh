@@ -216,7 +216,8 @@
 // }
 //
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Sanani formatlash uchun kutubxona
+import 'package:intl/intl.dart';
+import 'package:sartarosh/utils/colors/app_colors.dart'; // Sanani formatlash uchun kutubxona
 
 class BookingScreen extends StatefulWidget {
   final DateTime? initialDate;
@@ -237,7 +238,10 @@ class _BookingScreenState extends State<BookingScreen> {
     "15:00",
     "16:00",
     "17:00",
-    "18:00"
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00"
   ];
   Map<DateTime, List<String>> bookedSchedule =
       {}; // Sanalar va band qilingan vaqtlar
@@ -323,43 +327,58 @@ class _BookingScreenState extends State<BookingScreen> {
             ),
             SizedBox(height: 20),
             Expanded(
-              child: ListView.builder(
-                itemCount: availableTimes.length,
-                itemBuilder: (context, index) {
-                  String time = availableTimes[index];
-                  bool isBooked = bookedSchedule[selectedDate]!.contains(time);
-                  return ListTile(
-                    title: Text(time),
-                    trailing: isBooked
-                        ? Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text(
-                                "Booked",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.cancel),
-                                color: Colors.red,
-                                onPressed: () {
-                                  _cancelBooking(time);
-                                },
-                              ),
-                            ],
-                          )
-                        : ElevatedButton(
-                            onPressed: () {
-                              if (!isBooked) {
-                                _bookTime(time);
-                              }
-                            },
-                            child: const Text(
-                              "Book",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                  );
-                },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.c355353.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                
+                child: ListView.builder(
+                  itemCount: availableTimes.length,
+                  itemBuilder: (context, index) {
+                    String time = availableTimes[index];
+                    bool isBooked = bookedSchedule[selectedDate]!.contains(time);
+                    return Column(
+                      children: [
+                        ListTile(
+                          title: Text(time),
+                          trailing: isBooked
+                              ? Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text(
+                                      "Booked",
+                                      style: TextStyle(color: Colors.red),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.cancel),
+                                      color: Colors.red,
+                                      onPressed: () {
+                                        _cancelBooking(time);
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : ElevatedButton(
+                                  onPressed: () {
+                                    if (!isBooked) {
+                                      _bookTime(time);
+                                    }
+                                  },
+                                  child: const Text(
+                                    "Book",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                        ),
+                        SizedBox(height: 5,),
+                        Container(color: Colors.black,
+                        margin: EdgeInsets.symmetric(horizontal: 15),
+                        width: double.infinity,height: 1,),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],

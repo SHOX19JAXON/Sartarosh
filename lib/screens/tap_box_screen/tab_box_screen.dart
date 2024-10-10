@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sartarosh/screens/barbers/barbers_screen.dart';
+import 'package:sartarosh/screens/booking/booking.dart';
 import 'package:sartarosh/screens/home_screen/home_screen.dart';
 import 'package:sartarosh/utils/colors/app_colors.dart';
 
@@ -84,8 +85,12 @@ class _TabBox1State extends State<TabBox1> {
         ),
         child: FloatingActionButton(
           backgroundColor: AppColors.c355353,
-          onPressed: () {},
-          child: Icon(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const BookingScreen();
+            }));
+          },
+          child: const Icon(
             Icons.bookmarks_outlined,
             size: 30,
             color: Colors.white,

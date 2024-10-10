@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sartarosh/screens/auth/login/login_screen.dart';
+import 'package:sartarosh/screens/auth/register/register_screen.dart';
 
 import 'package:sartarosh/screens/home_screen/home_screen.dart';
 import 'package:sartarosh/screens/tap_box_screen/tab_box_screen.dart';
@@ -10,6 +12,10 @@ class AppRoutes {
         return navigate(const HomeScreen());
       case RouteNames.TabBox1:
         return navigate(const TabBox1());
+      case RouteNames.login:
+        return navigate(const LoginScreen());
+      case RouteNames.signup:
+        return navigate(const RegisterScreen());
 
       default:
         return navigate(
@@ -36,6 +42,8 @@ class RouteNames {
   static const String GenerateScreen = "/GenerateScreen";
   static const String TabBox1 = "/TabBox1";
   static const String homeScreen = "/homeScreen";
+  static const String login = '/login';
+  static const String signup = '/signup';
 }
 
 // class RouteNames {
